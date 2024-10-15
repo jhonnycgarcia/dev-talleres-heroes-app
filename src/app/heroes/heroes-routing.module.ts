@@ -11,22 +11,12 @@ const routes: Routes = [
     path: '',
     component: LayoutPageComponent,
     children: [
-      {
-        path: 'new-hero',
-        component: NewPageComponent
-      },
-      {
-        path: 'heroes',
-        component: ListPageComponent
-      },
-      {
-        path: 'heroes/:id',
-        component: HeroPageComponent
-      },
-      {
-        path: 'heroes/search',
-        component: SearchPageComponent
-      }
+      { path: 'new-hero', component: NewPageComponent },
+      { path: 'search', component: SearchPageComponent },
+      { path: 'edit/:id', component: NewPageComponent  },
+      { path: 'list', component: ListPageComponent },
+      { path: ':id', component: HeroPageComponent },
+      { path: '**', redirectTo: 'list' }
     ]
   }
 ];
