@@ -25,3 +25,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+`https://gist.github.com/Klerith/e09f16f2ae9f6c9ebce6c648fc136072`
+`https://www.npmjs.com/package/json-server`
