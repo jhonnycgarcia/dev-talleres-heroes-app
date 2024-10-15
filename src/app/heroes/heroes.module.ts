@@ -26,7 +26,6 @@ import { HeroImagePipe } from './pipes/hero-image.pipe';
   ],
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     HeroesRoutingModule,
     MaterialModule,
