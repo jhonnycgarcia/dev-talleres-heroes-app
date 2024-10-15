@@ -10,6 +10,7 @@ import { ListPageComponent } from './pages/list-page/list-page.component';
 import { MaterialModule } from '../material/material.module';
 import { NewPageComponent } from './pages/new-page/new-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { HeroImagePipe } from './pipes/hero-image.pipe';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
     ListPageComponent,
     NewPageComponent,
     SearchPageComponent,
+    HeroImagePipe,
   ],
   imports: [
     CommonModule,
