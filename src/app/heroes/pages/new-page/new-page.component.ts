@@ -36,11 +36,19 @@ export class NewPageComponent {
 
   onSubmit(): void {
     if(!this.heroForm.valid){ return; }
-    // console.log({
-    //   formIsValid: this.heroForm.valid,
-    //   // value: this.heroForm.getRawValue(),
-    //   value: this.heroForm.value,
-    // });
+
+    if(this.currentHero.id){
+      this.heroesSrv.updateHero(this.currentHero)
+        .subscribe((hero) => {
+          /** TODO: mostrar snackbar */
+        });
+      return;
+    }
+
+    this.heroesSrv.addHero(this.currentHero)
+      .subscribe((hero) => {
+        /** TODO: mostrar snackbar y navegar a /heroes/edit/{hero.id} */
+      });
   }
 
 }
