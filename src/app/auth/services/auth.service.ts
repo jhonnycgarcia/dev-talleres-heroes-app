@@ -29,8 +29,8 @@ export class AuthService {
       );
   }
 
-  checkAuhtentication(): Observable<boolean> | boolean {
-    if(!localStorage.getItem('token')){ return false; }
+  checkAuhtentication(): Observable<boolean> {
+    if(!localStorage.getItem('token')){ return of(false); }
 
     const token = localStorage.getItem('token');
 
