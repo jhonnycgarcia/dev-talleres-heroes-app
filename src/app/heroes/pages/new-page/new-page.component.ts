@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { filter, switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -91,17 +91,19 @@ export class NewPageComponent implements OnInit {
     const dialogRef = this.dialog.open(
       ConfirmDialogComponent,
       {
-        data: {
-          hero: this.currentHero,
-      }
+        data: this.currentHero
       }
     );
 
-    dialogRef.afterClosed().subscribe(result => {
-      if(!result){ return; }
-      this.heroesSrv.deleteHeroById(this.currentHero.id);
-      this.router.navigate(['/heroes/list']);
-    });
+    dialogRef.afterClosed()
+      .pipe(
+        filter((result: boolean) => result),
+        switchMap(() => this.heroesSrv.deleteHeroById(this.currentHero.id)),
+        filter((wasDeleted: boolean) => wasDeleted),
+      )
+      .subscribe(() => {
+        this.router.navigate(['/heroes/list']);
+      });
   }
 
 }
